@@ -1,0 +1,126 @@
+
+.App {
+    display: flex;
+    justify-content: center;
+    color: #eee;
+    align-items: center;
+  
+    flex-direction: column; /* Pour aligner verticalement le contenu */
+    background-color: #080219;
+  }
+  
+  /* Ajoutez d'autres styles selon vos besoins */
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .game {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .status {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .board-row {
+    display: flex;
+  }
+  
+  .square {
+    font-size: 36px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #333;
+    cursor: pointer;
+  }
+  
+  .square:hover {
+    background-color: #eee;
+  }
+  /* App.css */
+
+/* ... (autres styles) */
+
+.reset-button {
+    background-color: #f44336; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .reset-button:hover {
+    background-color: #d32f2f; /* Couleur de fond du bouton au survol */
+  }
+  
+  /***************/
+  /* Style de base pour la table */
+  .conteneurticta{
+    display: flex;
+    flex-direction: column;
+    border: solid 2px rgb(13, 100, 94);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  /* Style pour l'en-tête de la table */
+  thead {
+    background-color: #1a1818;
+  }
+  
+  thead th {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style pour les lignes de données */
+  tbody tr {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  tbody td {
+    padding: 10px;
+  }
+  
+  /* Style pour les cellules de score */
+  td:nth-child(2),
+  td:nth-child(3) {
+    text-align: center;
+    font-weight: bold;
+    color: #f1f3f6; /* Couleur du texte */
+  }
+  
+  /* Style pour la cellule Player1 */
+  td:nth-child(1),
+  td:nth-child(4) {
+    font-weight: bold;
+    color: #f6eaea; /* Couleur du texte */
+  }
+  
+  /* Style pour la cellule Player1 (previously Prenom) */
+  td:nth-child(5) {
+    font-weight: bold;
+    color: #ede8e8; /* Couleur du texte */
+  }
+  
+  /* Style pour la dernière ligne */
+  tbody tr:last-child {
+    border-bottom: none;
+  }
+  
