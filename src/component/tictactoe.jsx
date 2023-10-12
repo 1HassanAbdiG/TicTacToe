@@ -10,13 +10,11 @@ function Square(props) {
 }
 
 function Tictactoe() {
+    
     const [squares, setSquares] = useState(Array(9).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
     const [player1, setPlayer1] = useState("X");
     const [player2, setPlayer2] = useState("O");
-
-   
-    
 
     function handleClick(i) {
         const newSquares = squares.slice();
@@ -53,6 +51,8 @@ function Tictactoe() {
     function resetBoard() {
         setSquares(Array(9).fill(null));
         setXIsNext(true);
+        setPlayer1("X");
+        setPlayer2("O");
     }
 
     const winner = calculateWinner(squares);
@@ -87,34 +87,35 @@ function Tictactoe() {
 
     const [nom, setNom] = useState('');
     const [prenom, setPrenom] = useState('');
+
+
+    const [tab, setTab] = useState([])
+
     const [afficheNomPrenom, setAfficheNomPrenom] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setPlayer1(nom);
-        setPlayer2(prenom);
-        console.log("JJJJJ",player1)
-        console.log("JJ{{",{player1})
-        
-        
-       
+        setTab([nom, prenom])
+        setNom("")
+        setPrenom("")
+
 
         setAfficheNomPrenom(true);
 
     };
-    console.log("JJ{{",{afficheNomPrenom})
+    const tab1 = Object.values(tab);
+
     const [scores, setScores] = useState([
         { player: player1, score: 0 },
         { player: player2, score: 0 },
-        
+
     ]);
-    
-   
+
     return (
-        <div>
-            
-                <h1 className="text-center">Tic Tac Toe</h1><br></br>
-                <div className='conteneurticta'>
+        <div className='conteneur'>
+
+            <h1 className="text-center">Tic Tac Toe</h1><br></br>
+            <div className='conteneurticta'>
                 <form onSubmit={handleSubmit}>
                     <label>
                         player1 :
@@ -138,12 +139,12 @@ function Tictactoe() {
                 </form>
                 {afficheNomPrenom && (
                     <div>
-                        <p> X : {nom}</p>
-                        <p> O : {prenom}</p>
+                        <p> X : {tab1[0]}</p>
+                        <p> O : {tab1[1]}</p>
                     </div>
                 )}
             </div>
-
+            <div className='conteneurticta'>
             <div className="status">{status}</div>
             <div className="board-row">
                 {renderSquare(0)}
@@ -162,31 +163,40 @@ function Tictactoe() {
             </div>
             <button className="reset-button" onClick={resetBoard}>Reset</button>
             <div className="scores">
-                <h2>Scores</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Player1</th>
-                            <th>score X </th>
-                            <th>score O </th>
-                            <th>Player1</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                    <td>{player1}</td>
-                    
-                        {scores.map((score, index) => (
-                            
-                        
-                                <td key={index}>{score.score}</td>
-                            
-                        ))}
-                        <td>{player2}</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+
+            </div>
+
+            
+
+                {afficheNomPrenom && (<div className="scores">
+                    <h2>Résultats</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom du Joueur</th>
+                                <th>Score </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {scores.map((score, index) => (
+
+                                <tr key={index}>
+                                    <td>{tab1[index]}</td>
+
+                                    <td >{score.score}</td>
+                                </tr>
+                            ))}
+
+
+                        </tbody>
+                    </table>
+                </div>)}
+
+
+
             </div>
         </div>
     );
