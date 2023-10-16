@@ -144,6 +144,7 @@ function Tictactoe() {
                     </div>
                 )}
             </div>
+            
             <div className='conteneurticta'>
             <div className="status">{status}</div>
             <div className="board-row">
